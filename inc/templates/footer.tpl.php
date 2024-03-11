@@ -15,20 +15,20 @@
         <div class="card">
           <h3 class="card-header">Catégories</h3>
           <ul class="list-group list-group-flush">
-            <li class="list-group-item"><a href="#">Catégorie à dynamiser</a></li>
-            <li class="list-group-item"><a href="#">Catégorie à dynamiser</a></li>
-            <li class="list-group-item"><a href="#">Catégorie à dynamiser</a></li>
+              <?php foreach ($dataCategoriesList as $categorieId => $categorieName) : ?>
+              <li class="list-group-item"><?= $categorieName ?></li>
+              <?php endforeach; ?>
           </ul>
         </div>
 
         <!-- Auteurs: https://getbootstrap.com/docs/4.1/components/card/#list-groups -->
         <div class="card">
           <h3 class="card-header">Auteurs</h3>
-          <ul class="list-group list-group-flush">
-            <li class="list-group-item"><a href="#">Auteur à dynamiser</a></li>
-            <li class="list-group-item"><a href="#">Auteur à dynamiser</a></li>
-            <li class="list-group-item"><a href="#">Auteur à dynamiser</a></li>
-          </ul>
+              <ul class="list-group list-group-flush">
+            <?php foreach ($dataAuthorsList as $authorId => $authorName) : ?>
+            <li class="list-group-item"><?= $authorName ?></li>
+            <?php endforeach; ?>
+        </ul>
         </div>
 
       </aside>
