@@ -1,1 +1,1 @@
-<h1>Articles rangés dans la catégorie XXX</h1>
+<h1>Articles rangés dans la catégorie<?=$categorieToDisplay->categorie?></h1>

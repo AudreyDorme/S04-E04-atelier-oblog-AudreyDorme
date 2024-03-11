@@ -99,13 +99,30 @@ if ($pageToDisplay === 'home') {
     // On s'assure donc de ne pas tomber ni sur false, ni sur null
     if ($categorieId !== false && $categorieId !== null) {
         $categorieToDisplay = $categoriesList[$categorieId];
+
+        // on veut creer un tableau avec les articles de categorieId (l'id recupéré dans l'url)
+        $categorieId = [];
+        // creer un tableau vide categArticles
+        $cateArticle = [];
+        // parcourir le tableau de tous les articles 
+foreach ($dataArticlesList as $article){
+// si l'article en cours à la categorie égale à $categorieToDisplay->category alors on l'ajoute dans le tableau categArticles
+    if ($categorieToDisplay == $article->category){
+        $cateArticle = [$article->category];
+        var_dump ($cateArticle);
+        // var_dump($article);
+    }
+}
+
+        // le tableau categArticle sera dispo dans le template category.tpl.php il restera plus qu'a afficher les articles de ce tableau
     } else {
         // Si l'id n'est pas fourni, on affiche la page d'accueil
         // plutôt que d'avoir un message d'erreur
         $pageToDisplay = 'home';
     }
-    // ------------------
 }
+    // ------------------
+
 
 // ===========================================================
 // Affichage
