@@ -12,7 +12,7 @@
 // ===========================================================
 
 require __DIR__ . '/inc/classes/Article.php';
-
+require __DIR__ . '/inc/classes/Author.php';
 // ===========================================================
 // Récupération des données nécessaires à toutes les pages
 // du site (pour le moment on ne récupère que la page à
@@ -67,19 +67,50 @@ if ($pageToDisplay === 'home') {
         // plutôt que d'avoir un message d'erreur
         $pageToDisplay = 'home';
     }
+
+
 } else if ($pageToDisplay === 'author') {
     // ------------------
     // Page Auteur
-    // ------------------
+    require __DIR__ . '/inc/data.php';
+    $authorsList = $dataAuthorsList;
+
+    $authorId = filter_input(INPUT_GET, 'id', FILTER_VALIDATE_INT);
+    // filter_input renvoie null si la paramètre n'existe pas
+    // et false si le filtre de validation échoue
+    // On s'assure donc de ne pas tomber ni sur false, ni sur null
+    if ($authorId !== false && $authorId !== null) {
+        $authorToDisplay = $authorsList[$authorId];
+    } else {
+        // Si l'id n'est pas fourni, on affiche la page d'accueil
+        // plutôt que d'avoir un message d'erreur
+        $pageToDisplay = 'home';
+    }
+
 } else if ($pageToDisplay === 'category') {
     // ------------------
     // Page Catégorie
+    require __DIR__ . '/inc/data.php';
+    $categoriesList = $dataCategoriesList;
+
+    $categorieId = filter_input(INPUT_GET, 'id', FILTER_VALIDATE_INT);
+    // filter_input renvoie null si la paramètre n'existe pas
+    // et false si le filtre de validation échoue
+    // On s'assure donc de ne pas tomber ni sur false, ni sur null
+    if ($categorieId !== false && $categorieId !== null) {
+        $categorieToDisplay = $categoriesList[$categorieId];
+    } else {
+        // Si l'id n'est pas fourni, on affiche la page d'accueil
+        // plutôt que d'avoir un message d'erreur
+        $pageToDisplay = 'home';
+    }
     // ------------------
 }
 
 // ===========================================================
 // Affichage
 // ===========================================================
+
 
 // Rappel : les variables définies dans index.php, et dans les
 // fichiers inclus par index.php (inc/data.php par exemple)
