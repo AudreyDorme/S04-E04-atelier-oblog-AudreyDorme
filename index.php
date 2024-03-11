@@ -13,6 +13,7 @@
 
 require __DIR__ . '/inc/classes/Article.php';
 require __DIR__ . '/inc/classes/Author.php';
+require __DIR__ . '/inc/classes/Category.php';
 // ===========================================================
 // Récupération des données nécessaires à toutes les pages
 // du site (pour le moment on ne récupère que la page à
@@ -67,7 +68,6 @@ if ($pageToDisplay === 'home') {
         // plutôt que d'avoir un message d'erreur
         $pageToDisplay = 'home';
     }
-
 
 } else if ($pageToDisplay === 'author') {
     // ------------------

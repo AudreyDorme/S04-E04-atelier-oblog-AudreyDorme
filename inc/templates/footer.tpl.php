@@ -17,7 +17,7 @@
           <ul class="list-group list-group-flush">
               <?php foreach ($dataCategoriesList as $categorieId => $categorieName) : ?>
                 <!-- lien catégorie -->
-              <li class="list-group-item"><a href="index.php?page=category&id=<?= $categorieId ?>"><?= $categorieName?></a></li>
+              <li class="list-group-item"><a href="index.php?page=category&id=<?= $categorieId ?>"><?= $categorieName->categorie?></a></li>
               <?php endforeach; ?>
           </ul>
         </div>
@@ -28,7 +28,7 @@
               <ul class="list-group list-group-flush">
             <?php foreach ($dataAuthorsList as $authorId => $authorName) : ?>
               <!-- lien auteurs -->
-            <li class="list-group-item"><a href="index.php?page=author&id=<?= $authorId ?>"><?= $authorName ?></a></li>
+            <li class="list-group-item"><a href="index.php?page=author&id=<?= $authorId ?>"><?= $authorName->author ?></a></li>
             <?php endforeach; ?>
         </ul>
         </div>
